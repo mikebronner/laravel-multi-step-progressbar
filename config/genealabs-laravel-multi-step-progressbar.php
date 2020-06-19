@@ -3,10 +3,6 @@
 use App\Http\ViewComposers\RecordWizardViewComposer;
 
 return [
-    "view-composers" => [
-        RecordWizardViewComposer::class,
-    ],
-
     "sprites" => [
         "hidden" => [
             "bar" => "",

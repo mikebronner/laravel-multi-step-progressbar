@@ -13,7 +13,7 @@ class MultiStepProgressbar extends Component
     public $stepData;
     public $steps;
 
-    public function __construct(Model $model = null)
+    public function __construct(Model $model = null, array $stepData = [])
     {
         $this->canJumpToStep = 1;
         $this->model = $model;

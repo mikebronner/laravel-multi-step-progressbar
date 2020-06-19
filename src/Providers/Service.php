@@ -22,15 +22,6 @@ class Service extends ServiceProvider
                 '*',
                 MultiStepProgressbarComposer::class
             );
-        $viewComposers = config("genealabs-laravel-multi-step-progressbar.view-composers");
-
-        foreach ($viewComposers as $viewComposer) {
-            app('view')
-                ->composer(
-                    '*',
-                    $viewComposer
-                );
-        }
 
         $this->loadViewComponentsAs(
             '',
