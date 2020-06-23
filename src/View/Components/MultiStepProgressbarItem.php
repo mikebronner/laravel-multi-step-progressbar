@@ -2,6 +2,7 @@
 
 namespace GeneaLabs\LaravelMultiStepProgressbar\View\Components;
 
+use Illuminate\Support\Collection;
 use Illuminate\View\Component;
 
 class MultiStepProgressbarItem extends Component
@@ -18,7 +19,7 @@ class MultiStepProgressbarItem extends Component
         string $step = "1",
         string $steps = "1",
         string $canJumpToStep = "0",
-        array $stepData = []
+        Collection $stepData = null
     ) {
         $this->canJumpToStep = intval($canJumpToStep);
         $this->currentStep = intval($currentStep);

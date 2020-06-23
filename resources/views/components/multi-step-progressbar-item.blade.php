@@ -12,15 +12,15 @@
     >
         @if ($step <= $canJumpToStep && $step !== $currentStep)
             <a
-                aria-label="{{ $stepData["step-{$step}"]["title"] }}"
+                aria-label="{{ $stepData->get($step)->title }}"
                 data-balloon-pos="down"
-                href="{{ $stepData["step-{$step}"]["url"] }}"
+                href="{{ $stepData->get($step)->url }}"
             >
                 <img src="{{ $imageForBubble }}">
             </a>
         @elseif ($step !== $currentStep)
             <div
-                aria-label="{{ $stepData["step-{$step}"]["title"] }}"
+                aria-label="{{ $stepData->get($step)->title }}"
                 data-balloon-pos="down"
                 style="cursor: default !important;"
             >
@@ -37,12 +37,12 @@
             <div
                 class="m-0 p-0 whitespace-no-wrap font-bold"
             >
-                {{ $stepData["step-{$step}"]["title"] }}
+                {{ $stepData->get($step)->title }}
             </div>
             <p
                 class="m-0 p-0 text-sm italic"
             >
-                {{ $stepData["step-{$step}"]["description"] }}
+                {{ $stepData->get($step)->description }}
             </p>
         @endif
     </div>
