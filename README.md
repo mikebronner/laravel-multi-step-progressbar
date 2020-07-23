@@ -33,8 +33,7 @@ Each step has the following properties:
 #### Collection
 You can create this as follows:
 ```php
-$stepData = collect();
-$stepData = $stepData
+$stepData = collect()
     ->push((new ProgressbarItem)->fill([
         "step" => 1,
         "url" => route("wizards.record-analysis.edit", ["record" => $record, "step" => "1"]),
