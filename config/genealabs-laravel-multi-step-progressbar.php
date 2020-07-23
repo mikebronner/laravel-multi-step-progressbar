@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\ViewComposers\RecordWizardViewComposer;
-
 return [
     "sprites" => [
         "hidden" => [
