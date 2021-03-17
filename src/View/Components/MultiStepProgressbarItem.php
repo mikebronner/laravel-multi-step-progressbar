@@ -4,6 +4,7 @@ namespace GeneaLabs\LaravelMultiStepProgressbar\View\Components;
 
 use Illuminate\Support\Collection;
 use Illuminate\View\Component;
+use Illuminate\View\View;
 
 class MultiStepProgressbarItem extends Component
 {
@@ -29,7 +30,7 @@ class MultiStepProgressbarItem extends Component
         $this->images = config("genealabs-laravel-multi-step-progressbar.sprites");
     }
 
-    public function imageForLeftBar() : string
+    public function imageForLeftBar(): string
     {
         $state = $this->isFirstItem()
             ? "hidden"
@@ -40,7 +41,7 @@ class MultiStepProgressbarItem extends Component
         return $this->images[$state]["bar"];
     }
 
-    public function imageForBubble() : string
+    public function imageForBubble(): string
     {
         $position = $this->isFirstItem()
             ? "first"
@@ -61,7 +62,7 @@ class MultiStepProgressbarItem extends Component
         return $this->images[$state]["{$position}-pip"];
     }
 
-    public function imageForRightBar() : string
+    public function imageForRightBar(): string
     {
         $state = $this->isLastItem()
             ? "hidden"
@@ -72,58 +73,53 @@ class MultiStepProgressbarItem extends Component
         return $this->images[$state]["bar"];
     }
 
-    protected function isFirstItem() : bool
+    protected function isFirstItem(): bool
     {
         return $this->step === 1;
     }
 
-    protected function isLastItem() : bool
+    protected function isLastItem(): bool
     {
         return $this->step === $this->steps;
     }
 
-    protected function isPreviousItem() : bool
+    protected function isPreviousItem(): bool
     {
         return $this->step <= $this->canJumpToStep
             || $this->step <= $this->currentStep;
     }
 
-    protected function isFutureItem() : bool
+    protected function isFutureItem(): bool
     {
         return $this->step >= $this->canJumpToStep
             && $this->step >= $this->currentStep;
     }
 
-    protected function isVisitedItem() : bool
+    protected function isVisitedItem(): bool
     {
         return $this->step <= $this->canJumpToStep
             && $this->step !== $this->currentStep;
     }
 
-    protected function isMaxProgressedCurrentItem() : bool
+    protected function isMaxProgressedCurrentItem(): bool
     {
         return $this->currentStep >= $this->canJumpToStep
             && $this->currentStep === $this->step;
     }
 
-    protected function isMaxProgressedEditedItem() : bool
+    protected function isMaxProgressedEditedItem(): bool
     {
         return $this->currentStep < $this->canJumpToStep
             && $this->step === $this->canJumpToStep;
     }
 
-    protected function isPreviouslyEditedCurrentItem() : bool
+    protected function isPreviouslyEditedCurrentItem(): bool
     {
         return $this->step === $this->currentStep
             && $this->step < $this->canJumpToStep;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
-    public function render()
+    public function render(): View
     {
         return view('genealabs-laravel-multi-step-progressbar::components.multi-step-progressbar-item');
     }

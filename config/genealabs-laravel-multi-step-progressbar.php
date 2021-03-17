@@ -7,33 +7,33 @@ return [
         ],
         // not previously visited step
         "unvisited" => [
-            "bar" => asset("images/assets/progress-bar/unactivated-bar.png"),
-            "middle-pip" => asset("images/assets/progress-bar/unactivated-middle.png"),
-            "last-pip" => asset("images/assets/progress-bar/unactivated-end.png"),
+            "bar" => asset("vendor/genealabs/laravel-multi-step-progressbar/unactivated-bar.png"),
+            "middle-pip" => asset("vendor/genealabs/laravel-multi-step-progressbar/unactivated-middle.png"),
+            "last-pip" => asset("vendor/genealabs/laravel-multi-step-progressbar/unactivated-end.png"),
         ],
         // previously visited step
         "visited" => [
-            "first-pip" => asset("images/assets/progress-bar/activated-start.png"),
-            "bar" => asset("images/assets/progress-bar/activated-bar.png"),
-            "middle-pip" => asset("images/assets/progress-bar/activated-middle.png"),
-            "last-pip" => asset("images/assets/progress-bar/activated-end.png"),
+            "first-pip" => asset("vendor/genealabs/laravel-multi-step-progressbar/activated-start.png"),
+            "bar" => asset("vendor/genealabs/laravel-multi-step-progressbar/activated-bar.png"),
+            "middle-pip" => asset("vendor/genealabs/laravel-multi-step-progressbar/activated-middle.png"),
+            "last-pip" => asset("vendor/genealabs/laravel-multi-step-progressbar/activated-end.png"),
         ],
         // current step, and previously visited
         "active" => [
-            "first-pip" => asset("images/assets/progress-bar/active-current-start.png"),
-            "middle-pip" => asset("images/assets/progress-bar/active-activated-middle.png"),
-            "last-pip" => asset("images/assets/progress-bar/active-current-end.png"),
+            "first-pip" => asset("vendor/genealabs/laravel-multi-step-progressbar/active-current-start.png"),
+            "middle-pip" => asset("vendor/genealabs/laravel-multi-step-progressbar/active-activated-middle.png"),
+            "last-pip" => asset("vendor/genealabs/laravel-multi-step-progressbar/active-current-end.png"),
         ],
         // current and max visited step
         "max-active" => [
-            "first-pip" => asset("images/assets/progress-bar/active-current-start.png"),
-            "middle-pip" => asset("images/assets/progress-bar/active-current-middle.png"),
-            "last-pip" => asset("images/assets/progress-bar/active-current-end.png"),
+            "first-pip" => asset("vendor/genealabs/laravel-multi-step-progressbar/active-current-start.png"),
+            "middle-pip" => asset("vendor/genealabs/laravel-multi-step-progressbar/active-current-middle.png"),
+            "last-pip" => asset("vendor/genealabs/laravel-multi-step-progressbar/active-current-end.png"),
         ],
         // max step, not current, previously visited
         "max-visited" => [
-            "middle-pip" => asset("images/assets/progress-bar/activated-current-middle.png"),
-            "last-pip" => asset("images/assets/progress-bar/activated-current-end.png"),
+            "middle-pip" => asset("vendor/genealabs/laravel-multi-step-progressbar/activated-current-middle.png"),
+            "last-pip" => asset("vendor/genealabs/laravel-multi-step-progressbar/activated-current-end.png"),
         ],
     ]
 ];

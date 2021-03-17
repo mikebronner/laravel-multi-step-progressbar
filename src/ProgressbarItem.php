@@ -27,52 +27,52 @@ class ProgressbarItem extends Model
         "url",
     ];
 
-    public function getCanJumpAheadAttribute() : bool
+    public function getCanJumpAheadAttribute(): bool
     {
         return $this->canJumpAhead;
     }
 
-    public function getDescriptionAttribute() : string
+    public function getDescriptionAttribute(): string
     {
         return $this->description;
     }
 
-    public function getStepAttribute() : int
+    public function getStepAttribute(): int
     {
         return $this->step;
     }
 
-    public function getTitleAttribute() : string
+    public function getTitleAttribute(): string
     {
         return $this->title;
     }
 
-    public function getUrlAttribute() : string
+    public function getUrlAttribute(): string
     {
         return $this->url;
     }
 
-    public function setCanJumpAheadAttribute(bool $canJumpAhead) : void
+    public function setCanJumpAheadAttribute(bool $canJumpAhead): void
     {
         $this->canJumpAhead = $canJumpAhead;
     }
 
-    public function setDescriptionAttribute(string $description) : void
+    public function setDescriptionAttribute(string $description): void
     {
         $this->description = $description;
     }
 
-    public function setStepAttribute(int $step) : void
+    public function setStepAttribute(int $step): void
     {
         $this->step = $step;
     }
 
-    public function setTitleAttribute(string $title) : void
+    public function setTitleAttribute(string $title): void
     {
         $this->title = $title;
     }
 
-    public function setUrlAttribute(string $url) : void
+    public function setUrlAttribute(string $url): void
     {
         $this->url = $url;
     }

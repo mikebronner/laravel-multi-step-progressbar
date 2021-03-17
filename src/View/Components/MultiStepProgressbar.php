@@ -32,7 +32,7 @@ class MultiStepProgressbar extends Component
         $this->steps = count($this->stepData);
     }
 
-    public function render() : View
+    public function render(): View
     {
         return view('genealabs-laravel-multi-step-progressbar::components.multi-step-progressbar');
     }

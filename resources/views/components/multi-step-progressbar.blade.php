@@ -4,8 +4,10 @@
     <div
         class="relative w-full flex flex-grow justify-center"
     >
+
         @for ($step = 1; $step <= $steps; $step++)
             <x-multi-step-progressbar-item
+                {{ $attributes }}
                 :currentStep="$currentStep"
                 :step="$step"
                 :steps="$steps"
@@ -13,5 +15,6 @@
                 :stepData="$stepData"
             />
         @endfor
+
     </div>
 </div>

@@ -1,4 +1,6 @@
-<div class="relative w-full flex flex-grow justify-center">
+<div
+    class="relative w-full flex flex-grow justify-center"
+>
     <div
         class="absolute w-1/2 h-full left-0 bg-repeat-x bg-top top-0"
         style="background-image: url({{ $imageForLeftBar }}); background-repeat: repeat-x;"
@@ -8,7 +10,7 @@
         style="left: 50%; background-image: url({{ $imageForRightBar }}); background-repeat: repeat-x;"
     ></div>
     <div
-        class="flex flex-col items-center justify-start"
+        {{ $attributes->merge(["class" => 'flex flex-col items-center justify-start z-10'])}}
     >
         @if ($step <= $canJumpToStep && $step !== $currentStep)
             <a
