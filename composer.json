@@ -9,9 +9,9 @@
         }
     ],
     "require": {
-        "illuminate/support": "^8.0",
-        "illuminate/view": "^8.0",
-        "jenssegers/model": "^1.4"
+        "illuminate/support": "^9.0",
+        "illuminate/view": "^9.0",
+        "jenssegers/model": "^1.5"
     },
     "autoload": {
         "psr-4": {
