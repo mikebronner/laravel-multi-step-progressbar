@@ -2,78 +2,98 @@
 
 namespace GeneaLabs\LaravelMultiStepProgressbar;
 
-use Jenssegers\Model\Model;
+use ArrayAccess;
+use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Contracts\Support\Jsonable;
+use JsonSerializable;
 
-class ProgressbarItem extends Model
+class ProgressbarItem implements ArrayAccess, Arrayable, Jsonable, JsonSerializable
 {
-    protected $canJumpAhead;
-    protected $description;
-    protected $step;
-    protected $title;
-    protected $url;
+    protected array $attributes = [];
 
-    protected $appends = [
-        "canJumpAhead",
-        "description",
-        "step",
-        "title",
-        "url",
-    ];
-    protected $fillable = [
-        "canJumpAhead",
-        "description",
-        "step",
-        "title",
-        "url",
+    protected array $fillable = [
+        'canJumpAhead',
+        'description',
+        'step',
+        'title',
+        'url',
     ];
 
-    public function getCanJumpAheadAttribute(): bool
+    public function __construct(array $attributes = [])
     {
-        return $this->canJumpAhead;
+        $this->fill($attributes);
     }
 
-    public function getDescriptionAttribute(): string
+    public function fill(array $attributes): self
     {
-        return $this->description;
+        foreach ($attributes as $key => $value) {
+            if (in_array($key, $this->fillable)) {
+                $this->setAttribute($key, $value);
+            }
+        }
+
+        return $this;
     }
 
-    public function getStepAttribute(): int
+    public function setAttribute(string $key, mixed $value): self
     {
-        return $this->step;
+        $this->attributes[$key] = $value;
+
+        return $this;
     }
 
-    public function getTitleAttribute(): string
+    public function getAttribute(string $key): mixed
     {
-        return $this->title;
+        return $this->attributes[$key] ?? null;
     }
 
-    public function getUrlAttribute(): string
+    public function __get(string $key): mixed
     {
-        return $this->url;
+        return $this->getAttribute($key);
     }
 
-    public function setCanJumpAheadAttribute(bool $canJumpAhead): void
+    public function __set(string $key, mixed $value): void
     {
-        $this->canJumpAhead = $canJumpAhead;
+        $this->setAttribute($key, $value);
     }
 
-    public function setDescriptionAttribute(string $description): void
+    public function __isset(string $key): bool
     {
-        $this->description = $description;
+        return isset($this->attributes[$key]);
     }
 
-    public function setStepAttribute(int $step): void
+    public function offsetExists(mixed $offset): bool
     {
-        $this->step = $step;
+        return isset($this->attributes[$offset]);
     }
 
-    public function setTitleAttribute(string $title): void
+    public function offsetGet(mixed $offset): mixed
     {
-        $this->title = $title;
+        return $this->getAttribute($offset);
     }
 
-    public function setUrlAttribute(string $url): void
+    public function offsetSet(mixed $offset, mixed $value): void
     {
-        $this->url = $url;
+        $this->setAttribute($offset, $value);
+    }
+
+    public function offsetUnset(mixed $offset): void
+    {
+        unset($this->attributes[$offset]);
+    }
+
+    public function toArray(): array
+    {
+        return $this->attributes;
+    }
+
+    public function toJson($options = 0): string
+    {
+        return json_encode($this->jsonSerialize(), $options);
+    }
+
+    public function jsonSerialize(): array
+    {
+        return $this->toArray();
     }
 }
